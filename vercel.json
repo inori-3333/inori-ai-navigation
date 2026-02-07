@@ -1,0 +1,14 @@
+{
+  "$schema": "https://openapi.vercel.sh/2.0/schema.json",
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "regions": ["iad1"],
+  "functions": {
+    "app/**/*.ts": {
+      "runtime": "edge"
+    }
+  },
+  "crons": []
+}
