@@ -12,6 +12,11 @@ const nextConfig = {
         hostname: 'image.thum.io',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'www.google.com',
+        pathname: '/**',
+      },
     ],
   },
   async headers() {

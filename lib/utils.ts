@@ -16,7 +16,7 @@ export function getDomainFromUrl(url: string): string {
 
 export function generateLogoUrl(url: string): string {
   const domain = getDomainFromUrl(url);
-  return `https://logo.clearbit.com/${domain}`;
+  return `https://www.google.com/s2/favicons?domain=${domain}&sz=128`;
 }
 
 export function generateScreenshotUrl(url: string): string {

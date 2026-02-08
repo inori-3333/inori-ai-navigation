@@ -22,6 +22,8 @@ export default function ToolCard({ tool }: ToolCardProps) {
   const [imgError, setImgError] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const domain = getDomainFromUrl(tool.url);
+  const fallbackLogo = `https://www.google.com/s2/favicons?domain=${domain}&sz=128`;
+  const displayLogo = tool.logoUrl || fallbackLogo;
 
   const handleClick = async () => {
     // Increment views via API
@@ -48,15 +50,15 @@ export default function ToolCard({ tool }: ToolCardProps) {
       <div className="flex items-start gap-4">
         {/* Logo */}
         <div className="flex-shrink-0 w-14 h-14 relative">
-          {tool.logoUrl && !imgError ? (
+          {!imgError ? (
             <Image
-              src={tool.logoUrl}
+              src={displayLogo}
               alt={`${tool.name} logo`}
               fill
               sizes="56px"
               className="rounded-xl object-cover bg-slate-100 border border-slate-200 group-hover:border-primary-200 transition-colors"
               onError={() => setImgError(true)}
-              unoptimized // Clearbit logos are already optimized/small, sometimes Next.js optimization adds latency for many external tiny images
+              unoptimized
             />
           ) : (
             <div className="w-full h-full rounded-xl bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center">
