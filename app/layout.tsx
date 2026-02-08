@@ -24,17 +24,19 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="min-h-screen flex flex-col">
+      <body className="min-h-screen flex flex-col bg-slate-50">
         <Header />
-        <div className="flex-1 flex">
+        <div className="flex-1 flex pt-16">
           <Sidebar />
-          <main className="flex-1 ml-0 lg:ml-64 xl:ml-72 pt-16">
-            <div className="container mx-auto px-4 py-8">
-              {children}
-            </div>
-          </main>
+          <div className="flex-1 flex flex-col min-w-0">
+            <main className="flex-1">
+              <div className="container mx-auto px-4 py-8">
+                {children}
+              </div>
+            </main>
+            <Footer />
+          </div>
         </div>
-        <Footer />
       </body>
     </html>
   );

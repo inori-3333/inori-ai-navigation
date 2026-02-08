@@ -1,7 +1,6 @@
-'use client';
-
+import Image from 'next/image';
 import { useState } from 'react';
-import { getDomainFromUrl } from '@/lib/tools';
+import { getDomainFromUrl } from '@/lib/utils';
 
 interface Tool {
   id: string;
@@ -39,7 +38,7 @@ export default function ToolCard({ tool }: ToolCardProps) {
       target="_blank"
       rel="noopener noreferrer"
       onClick={handleClick}
-      className="card block p-4 group cursor-pointer"
+      className="card block p-4 group cursor-pointer relative"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       style={{
@@ -48,16 +47,19 @@ export default function ToolCard({ tool }: ToolCardProps) {
     >
       <div className="flex items-start gap-4">
         {/* Logo */}
-        <div className="flex-shrink-0">
+        <div className="flex-shrink-0 w-14 h-14 relative">
           {tool.logoUrl && !imgError ? (
-            <img
+            <Image
               src={tool.logoUrl}
               alt={`${tool.name} logo`}
-              className="w-14 h-14 rounded-xl object-cover bg-slate-100 border border-slate-200 group-hover:border-primary-200 transition-colors"
+              fill
+              sizes="56px"
+              className="rounded-xl object-cover bg-slate-100 border border-slate-200 group-hover:border-primary-200 transition-colors"
               onError={() => setImgError(true)}
+              unoptimized // Clearbit logos are already optimized/small, sometimes Next.js optimization adds latency for many external tiny images
             />
           ) : (
-            <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center">
+            <div className="w-full h-full rounded-xl bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center">
               <span className="text-2xl font-bold text-primary-600">
                 {tool.name.charAt(0)}
               </span>
@@ -91,17 +93,22 @@ export default function ToolCard({ tool }: ToolCardProps) {
       </div>
 
       {/* Screenshot Preview on Hover */}
-      {tool.screenshotUrl && (
+      {tool.screenshotUrl && isHovered && (
         <div
-          className="absolute inset-x-4 bottom-full mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10"
-          style={{ transform: isHovered ? 'translateY(0)' : 'translateY(10px)' }}
+          className="absolute inset-x-4 bottom-full mb-2 transition-all duration-300 pointer-events-none z-50"
+          style={{ transform: 'translateY(-10px)' }}
         >
-          <div className="bg-white rounded-lg shadow-xl border border-slate-200 overflow-hidden">
-            <img
-              src={tool.screenshotUrl}
-              alt={`${tool.name} preview`}
-              className="w-full h-32 object-cover"
-            />
+          <div className="bg-white rounded-lg shadow-2xl border border-slate-200 overflow-hidden w-64">
+            <div className="relative h-32 w-full">
+              <Image
+                src={tool.screenshotUrl}
+                alt={`${tool.name} preview`}
+                fill
+                sizes="256px"
+                className="object-cover"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       )}

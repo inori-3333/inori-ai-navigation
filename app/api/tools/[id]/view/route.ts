@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { PrismaClient } from '@prisma/client';
-import { getDomainFromUrl } from '@/lib/tools';
-
-const prisma = new PrismaClient();
+import prisma from '@/lib/prisma';
+import { getDomainFromUrl } from '@/lib/utils';
 
 export async function POST(
   request: NextRequest,

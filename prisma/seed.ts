@@ -1,8 +1,6 @@
-import { PrismaClient } from '@prisma/client';
+import prisma from '../lib/prisma';
 import { mapCategoryToId, CATEGORIES } from '../lib/categories';
-import { generateLogoUrl, generateScreenshotUrl } from '../lib/tools';
-
-const prisma = new PrismaClient();
+import { generateLogoUrl, generateScreenshotUrl } from '../lib/utils';
 
 // Curated AI tools data based on the mentioned sources
 const aiTools = [

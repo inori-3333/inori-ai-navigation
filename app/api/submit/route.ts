@@ -1,9 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { PrismaClient } from '@prisma/client';
-import { generateLogoUrl, generateScreenshotUrl } from '@/lib/tools';
+import prisma from '@/lib/prisma';
+import { generateLogoUrl, generateScreenshotUrl } from '@/lib/utils';
 import { mapCategoryToId } from '@/lib/categories';
-
-const prisma = new PrismaClient();
 
 export async function POST(request: NextRequest) {
   try {
