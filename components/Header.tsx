@@ -3,9 +3,10 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import SubmissionModal from './SubmissionModal';
+import { useMobileMenu } from '@/lib/contexts';
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { isOpen, toggle } = useMobileMenu();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
@@ -24,7 +25,7 @@ export default function Header() {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center gap-6">
+            <nav className="hidden lg:flex items-center gap-6">
               <Link href="/" className="text-slate-600 hover:text-primary-600 font-medium transition-colors">
                 Home
               </Link>
@@ -42,46 +43,33 @@ export default function Header() {
               </button>
             </nav>
 
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 rounded-lg hover:bg-slate-100 transition-colors"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                {isMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button>
-          </div>
-
-          {/* Mobile Menu */}
-          {isMenuOpen && (
-            <div className="md:hidden py-4 border-t border-slate-200">
-              <nav className="flex flex-col gap-2">
-                <Link href="/" className="px-4 py-2 text-slate-600 hover:bg-slate-100 rounded-lg font-medium transition-colors">
-                  Home
-                </Link>
-                <Link href="/?sort=newest" className="px-4 py-2 text-slate-600 hover:bg-slate-100 rounded-lg font-medium transition-colors">
-                  Newest
-                </Link>
-                <button
-                  onClick={() => {
-                    setIsMenuOpen(false);
-                    setIsModalOpen(true);
-                  }}
-                  className="btn-primary w-full mt-2"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clipRule="evenodd" />
-                  </svg>
-                  Submit Tool
-                </button>
-              </nav>
+            {/* Mobile Actions (Submit) + Menu Toggle */}
+            <div className="flex items-center gap-2 lg:hidden">
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="p-2 rounded-lg text-primary-600 hover:bg-primary-50 transition-colors"
+                title="Submit Tool"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                </svg>
+              </button>
+              
+              <button
+                onClick={toggle}
+                className="p-2 rounded-lg hover:bg-slate-100 transition-colors"
+                aria-label="Toggle Menu"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  {isOpen ? (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  ) : (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  )}
+                </svg>
+              </button>
             </div>
-          )}
+          </div>
         </div>
       </header>
 

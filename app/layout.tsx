@@ -3,6 +3,7 @@ import './globals.css';
 import Header from '@/components/Header';
 import Sidebar from '@/components/Sidebar';
 import Footer from '@/components/Footer';
+import { MobileMenuProvider } from '@/lib/contexts';
 
 export const metadata: Metadata = {
   title: 'InoriのAI Navigation | Discover the Best AI Tools',
@@ -25,18 +26,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="min-h-screen flex flex-col bg-slate-50">
-        <Header />
-        <div className="flex-1 pt-16">
-          <Sidebar />
-          <div className="lg:pl-64 xl:pl-72 flex flex-col min-h-[calc(100vh-4rem)]">
-            <main className="flex-1">
-              <div className="container mx-auto px-4 py-8">
-                {children}
-              </div>
-            </main>
-            <Footer />
+        <MobileMenuProvider>
+          <Header />
+          <div className="flex-1 pt-16">
+            <Sidebar />
+            <div className="lg:pl-64 xl:pl-72 flex flex-col min-h-[calc(100vh-4rem)]">
+              <main className="flex-1">
+                <div className="container mx-auto px-4 py-8">
+                  {children}
+                </div>
+              </main>
+              <Footer />
+            </div>
           </div>
-        </div>
+        </MobileMenuProvider>
       </body>
     </html>
   );
