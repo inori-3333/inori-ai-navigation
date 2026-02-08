@@ -3,6 +3,8 @@ import ToolGrid from '@/components/ToolGrid';
 import { getTools } from '@/lib/tools';
 import { getCategories } from '@/lib/categories';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'InoriのAI Navigation | Discover the Best AI Tools',
   description: 'A curated directory of 200+ AI tools for productivity, marketing, development, design, and more. Discover, search, and submit AI tools.',
