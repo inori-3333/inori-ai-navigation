@@ -1601,6 +1601,216 @@ const aiTools = [
     url: "https://www.marketmuse.com",
     category: "seo",
   },
+  
+  // Blogging
+  {
+    name: "Narrato",
+    description: "AI content creation and workflow management platform for teams.",
+    url: "https://narrato.io",
+    category: "blogging",
+  },
+  {
+    name: "Brandwell",
+    description: "AI writer for long-form, SEO-optimized blog posts.",
+    url: "https://brandwell.ai",
+    category: "blogging",
+  },
+  {
+    name: "Letterdrop",
+    description: "Automate SEO content creation and distribution.",
+    url: "https://letterdrop.com",
+    category: "blogging",
+  },
+  {
+    name: "Koala",
+    description: "AI writer that produces SEO-ready articles in minutes.",
+    url: "https://koala.sh",
+    category: "blogging",
+  },
+  {
+    name: "ContentShake",
+    description: "Semrush's AI tool for generating data-driven blog content.",
+    url: "https://www.semrush.com/contentshake",
+    category: "blogging",
+  },
+
+  // Productized Services
+  {
+    name: "Stratup.ai",
+    description: "Generate business ideas and validation reports with AI.",
+    url: "https://stratup.ai",
+    category: "productized-services",
+  },
+  {
+    name: "PitchBob",
+    description: "AI-powered pitch deck generator for startups.",
+    url: "https://pitchbob.io",
+    category: "productized-services",
+  },
+  {
+    name: "Upmetrics",
+    description: "AI business plan generator and financial forecasting.",
+    url: "https://upmetrics.co",
+    category: "productized-services",
+  },
+  {
+    name: "Venturus AI",
+    description: "Instant feedback on business ideas using GPT-4.",
+    url: "https://venturusai.com",
+    category: "productized-services",
+  },
+  {
+    name: "Activepieces",
+    description: "Open-source no-code business automation.",
+    url: "https://www.activepieces.com",
+    category: "productized-services",
+  },
+
+  // iOS
+  {
+    name: "Perplexity",
+    description: "AI search engine with a powerful iOS app.",
+    url: "https://perplexity.ai",
+    category: "ios",
+  },
+  {
+    name: "Lensa",
+    description: "AI photo editor for retouching and avatars.",
+    url: "https://prisma-ai.com/lensa",
+    category: "ios",
+  },
+  {
+    name: "ELSA Speak",
+    description: "AI English language speech assistant.",
+    url: "https://elsaspeak.com",
+    category: "ios",
+  },
+  {
+    name: "Replika",
+    description: "The AI companion who cares. Always here to listen and talk.",
+    url: "https://replika.com",
+    category: "ios",
+  },
+  {
+    name: "Seeing AI",
+    description: "Microsoft's app for the visually impaired to describe the world.",
+    url: "https://www.microsoft.com/en-us/ai/seeing-ai",
+    category: "ios",
+  },
+  {
+    name: "Facetune",
+    description: "AI-driven photo and video editing for mobile.",
+    url: "https://www.facetuneapp.com",
+    category: "ios",
+  },
+
+  // Product Building
+  {
+    name: "Mixpanel",
+    description: "Product analytics to help you convert, engage, and retain users.",
+    url: "https://mixpanel.com",
+    category: "product-building",
+  },
+  {
+    name: "Amplitude",
+    description: "Digital analytics platform for product insights.",
+    url: "https://amplitude.com",
+    category: "product-building",
+  },
+  {
+    name: "Productboard",
+    description: "Customer-centric product management platform.",
+    url: "https://www.productboard.com",
+    category: "product-building",
+  },
+  {
+    name: "Pendo",
+    description: "Product experience platform for onboarding and analytics.",
+    url: "https://www.pendo.io",
+    category: "product-building",
+  },
+  {
+    name: "Kraftful",
+    description: "AI-powered product research and insights from feedback.",
+    url: "https://www.kraftful.com",
+    category: "product-building",
+  },
+  {
+    name: "LaunchDarkly",
+    description: "Feature management platform for product delivery.",
+    url: "https://launchdarkly.com",
+    category: "product-building",
+  },
+
+  // Mac
+  {
+    name: "Elephas",
+    description: "Personal AI writing assistant for Mac.",
+    url: "https://elephas.app",
+    category: "mac",
+  },
+  {
+    name: "MacGPT",
+    description: "Use ChatGPT directly from your Mac menu bar.",
+    url: "https://www.macgpt.com",
+    category: "mac",
+  },
+  {
+    name: "TypingMind",
+    description: "A better UI for ChatGPT, Claude, and other LLMs on Mac.",
+    url: "https://typingmind.com",
+    category: "mac",
+  },
+  {
+    name: "DiffusionBee",
+    description: "Run Stable Diffusion locally on your Mac.",
+    url: "https://diffusionbee.com",
+    category: "mac",
+  },
+  {
+    name: "Superwhisper",
+    description: "Local AI dictation for Mac.",
+    url: "https://superwhisper.com",
+    category: "mac",
+  },
+  {
+    name: "Rewind",
+    description: "The search engine for your life, recorded locally on Mac.",
+    url: "https://www.rewind.ai",
+    category: "mac",
+  },
+
+  // Feedback Tools
+  {
+    name: "Chattermill",
+    description: "Unified customer feedback analytics platform.",
+    url: "https://chattermill.com",
+    category: "feedback-tools",
+  },
+  {
+    name: "Thematic",
+    description: "AI-powered feedback analysis for customer insights.",
+    url: "https://getthematic.com",
+    category: "feedback-tools",
+  },
+  {
+    name: "Zonka Feedback",
+    description: "Customer feedback and survey app with AI insights.",
+    url: "https://www.zonkafeedback.com",
+    category: "feedback-tools",
+  },
+  {
+    name: "Enterpret",
+    description: "Transform customer feedback into product growth.",
+    url: "https://enterpret.com",
+    category: "feedback-tools",
+  },
+  {
+    name: "Clootrack",
+    description: "Real-time customer experience analytics.",
+    url: "https://www.clootrack.com",
+    category: "feedback-tools",
+  },
 ];
 
 async function main() {
