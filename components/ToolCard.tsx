@@ -19,11 +19,23 @@ interface ToolCardProps {
 }
 
 export default function ToolCard({ tool }: ToolCardProps) {
-  const [imgError, setImgError] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
   const domain = getDomainFromUrl(tool.url);
-  const fallbackLogo = `https://www.google.com/s2/favicons?domain=${domain}&sz=128`;
-  const displayLogo = tool.logoUrl || fallbackLogo;
+  const googleFavicon = `https://www.google.com/s2/favicons?domain=${domain}&sz=128`;
+  
+  // Initialize with the provided logoUrl, or fallback to Google immediately if null
+  const [imgSrc, setImgSrc] = useState(tool.logoUrl || googleFavicon);
+  const [showPlaceholder, setShowPlaceholder] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleImageError = () => {
+    // If we're not already trying the Google favicon, try it now
+    if (imgSrc !== googleFavicon) {
+      setImgSrc(googleFavicon);
+    } else {
+      // If we're already using Google favicon and it failed, show placeholder
+      setShowPlaceholder(true);
+    }
+  };
 
   const handleClick = async () => {
     // Increment views via API
@@ -50,14 +62,14 @@ export default function ToolCard({ tool }: ToolCardProps) {
       <div className="flex items-start gap-4">
         {/* Logo */}
         <div className="flex-shrink-0 w-14 h-14 relative">
-          {!imgError ? (
+          {!showPlaceholder ? (
             <Image
-              src={displayLogo}
+              src={imgSrc}
               alt={`${tool.name} logo`}
               fill
               sizes="56px"
               className="rounded-xl object-cover bg-slate-100 border border-slate-200 group-hover:border-primary-200 transition-colors"
-              onError={() => setImgError(true)}
+              onError={handleImageError}
               unoptimized
             />
           ) : (
