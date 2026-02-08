@@ -26,9 +26,9 @@ export default function RootLayout({
     <html lang="en">
       <body className="min-h-screen flex flex-col bg-slate-50">
         <Header />
-        <div className="flex-1 flex pt-16">
+        <div className="flex-1 pt-16">
           <Sidebar />
-          <div className="flex-1 flex flex-col min-w-0">
+          <div className="lg:pl-64 xl:pl-72 flex flex-col min-h-[calc(100vh-4rem)]">
             <main className="flex-1">
               <div className="container mx-auto px-4 py-8">
                 {children}

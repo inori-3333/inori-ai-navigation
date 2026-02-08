@@ -7,12 +7,13 @@ import { Suspense } from 'react';
 
 function SidebarContent() {
   const searchParams = useSearchParams();
-  const currentCategory = searchParams.get('category') || 'all';
+  const currentCategory = searchParams.get('category');
+  const activeId = currentCategory || 'all';
 
   return (
     <nav className="space-y-1">
       {CATEGORIES.map((category) => {
-        const isActive = currentCategory === category.id;
+        const isActive = activeId === category.id;
         
         return (
           <Link
@@ -20,8 +21,8 @@ function SidebarContent() {
             href={category.id === 'all' ? '/' : `/?category=${category.id}`}
             className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 ${
               isActive
-                ? 'bg-primary-50 text-primary-700 shadow-sm'
-                : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
+                ? 'bg-primary-50 text-primary-700 shadow-sm border-r-4 border-primary-600'
+                : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900 border-r-4 border-transparent'
             }`}
           >
             <span className="text-lg">{category.icon}</span>
@@ -37,7 +38,7 @@ function SidebarContent() {
 
 export default function Sidebar() {
   return (
-    <aside className="sticky top-16 h-[calc(100vh-4rem)] w-64 lg:w-64 xl:w-72 bg-white border-r border-slate-200 overflow-y-auto hidden lg:block shrink-0 z-30">
+    <aside className="fixed left-0 top-16 bottom-0 w-64 lg:w-64 xl:w-72 bg-white border-r border-slate-200 overflow-y-auto hidden lg:block z-40 shadow-sm">
       <div className="p-4 relative min-h-full pb-20">
         <Suspense fallback={<div className="animate-pulse space-y-2">
           {[...Array(10)].map((_, i) => (
