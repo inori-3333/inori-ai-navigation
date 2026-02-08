@@ -61,7 +61,7 @@ A curated directory of 200+ AI tools for productivity, marketing, development, d
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/inori-ai-navigation.git
+git clone https://github.com/inori-3333/inori-ai-navigation.git
 cd inori-ai-navigation
 ```
 
